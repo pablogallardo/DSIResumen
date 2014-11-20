@@ -1,0 +1,234 @@
+\section{Unidad 1: Análisis de Información Orientado a Objetos con UML}
+
+\subsection{Revisión de UML}
+\subsection{Revisión de Proceso Unificado de Desarrollo}
+\subsection{Análisis en el Proceso Unificado de Desarrollo}
+\subsubsection{Objetivo}
+El modelo de análisis nos ayuda a refinar y estructurar los requisitos, nos permite razonar sobre los aspectos internos del sistema; incluidos sus recursos compartidos internos, nos ofrece un mayor poder expresivo y una mayor formalización debido a que se describe utilizando el lenguaje de los desarrolladores.\\
+
+El modelo de análisis hace abstracciones y evita resolver algunos problemas y tratar algunos requisitos que pensamos que es mejor posponer al diseño y a la implementación.
+
+\subsubsection{Artefactos}
+\paragraph{Modelo de análisis}
+Se presenta mediante un sistema de análisis que denota el paquete de más alto nivel del modelo.
+\paragraph{Clase del análisis}
+Representa una abstracción de una o varias clases y/o subsistemas del diseño del sistema.\\
+\begin{itemize}
+\item Se centra en el tratamiento de los requisitos funcionales y pospone los no funcionales.
+\item Es más conceptual, a menudo de mayor granularidad que sus contrapartidas de diseño e implementación.
+\item Raramente define u ofrece una interfaz en términos de operaciones.
+\item Atributos de alto nivel.
+\item Las relaciones que tiene son más que todo conceptuales.
+\item Encajan fácilmente en uno de tres estereotipos básicos: de interfaz, de control o de entidad.
+\end{itemize}
+\subparagraph{Clases de interfaz}
+Se utilizan para modelar la interacción entre el sistema y sus actores. Representan a menudo abstracciones de ventanas, formularios, paneles, interfaces de comunicaciones, sensores, terminales y API.
+\subparagraph{Clases de entidad}
+Se utilizan para modelar información que posee una vida larga y que es a menudo persistente. En la mayoría de los casos, las clases de entidad se derivan directamente de una clase de entidad del negocio.
+\subparagraph{Clases de control}
+Representan coordinación, secuencia, transacciones y control de otros objetos y se usan con frecuencia para encapsular el control de un caso de uso en concreto.
+\paragraph{Realización de caso de uso de análisis}
+Es una colaboración dentro del modelo de análisis que describe cómo se lleva a cabo y se ejecuta un caso de uso determinado en términos de las clases del análisis y de sus objetos del análisis en interacción.
+\subparagraph{Diagrama de clases}
+Es un diagrama en donde se ven representadas las clases participantes en el caso de uso y sus relaciones.
+\subparagraph{Diagrama de interacción}
+Muestran las interacciones entre objetos creando enlaces entre ellos y añadiendo mensajes a estos enlaces.
+\subparagraph{Flujo de sucesos de análisis}
+Es un texto adicional que explique los diagramas que son difíciles de entender por sí mismos.
+\subparagraph{Requisitos especiales} Son descripciones textuales que recogen todos los requisitos no funcionales sobre una realización de caso de uso. Estos pueden ser requisitos nuevos (que no se habían capturado en el flujo de requerimientos) o derivados que se encuentran a medida que avanza el trabajo de análisis.
+\paragraph{Paquete del análisis}
+Proporcionan un medio para organizar los artefactos del modelo de análisis en piezas manejables. Deben ser cohesivos y débilmente acoplados.\\
+Tienen las siguientes características:
+\begin{itemize}
+\item Pueden representar una separación de intereses de análisis.
+\item Deberían crearse basándose en los requisitos funcionales y en el dominio del problema.
+\item Hay muchas probabilidades de que  los paquetes se conviertan en subsistemas en las dos capas de aplicación superiores del modelo de diseño.
+\end{itemize}
+\subparagraph{Paquetes de servicio}
+Los paquetes de servicio se utilizan en un nivel más bajo de la jerarquía de paquetes del análisis para estructurar el sistema de acuerdo a los servicios que proporciona.
+\paragraph{Descripción de la arquitectura (vista del modelo de análisis)}
+Contiene una vista de la arquitectura del modelo de análisis que muestra sus artefactos más significativos para la arquitectura, estos son:
+\begin{itemize}
+\item Descomposición del modelo de análisis en paquetes de análisis y sus dependencias.
+\item Las clases fundamentales del análisis como las clases de entidad que encapsulan un fenómeno importante del dominio del problema.
+\item Realizaciones de casos de uso que describen cierta funcionalidad importante y crítica.
+\end{itemize} 
+\subsubsection{Trabajadores}
+\paragraph{Arquitecto}
+Es responsable de la integridad del modelo de análisis, garantizando que este sea correcto, consistente y legible como un todo.
+\paragraph{Ingeniero de casos de uso}
+Es responsable de la integridad de una o más realizaciones de caso de uso; garantizando que cumplen los requisitos que recaen sobre ellos.
+\paragraph{Ingeniero de componentes}
+Define y mantiene las responsabilidades, atributos, realiciones y requisitos especiales de una o varias clases del análisis, asegurándose de que cada clase del análisis cumple los requisitos que se esperan de ella de acuerdo a las realizaciones de caso de uso en las que participa.
+\subsubsection{Actividades}
+\paragraph{Análisis de la arquitectura}
+Su propósito es esbozar el modelo de análisis y la arquitectura mediante la identificación de paquetes del análisis evidentes y requisitos especiales comunes.
+\paragraph{Analizar un caso de uso}
+Lo hacemos para:
+\begin{itemize}
+\item Identificar las clases del análisis cuyos objetos son necesarios para llevar a cabo el flujo de sucesos del caso de uso.
+\item Distribuir el comportamiento del caso de uso entre los objetos del análisis que interactúan.
+\item Capturar requisitos especiales sobre la realización del caso de uso.
+\end{itemize}
+\paragraph{Analizar una clase}
+Estos son los objetivos de analizar una clase:
+\begin{itemize}
+\item Identificar y mantener las responsabilidades de una clase del análisis, basadas en su papel en las realizaciones de caso de uso.
+\item Identificar y mantener los atributos y relaciones de la clase del análisis.
+\item Capturar requisitos especiales sobre la realización de la clase del análisis.
+\end{itemize}
+\paragraph{Analizar un paquete}
+Objetivos:
+\begin{itemize}
+\item Garantizar que el paquete del análisis es tan independiente de otros paquetes como sea posible.
+\item Garantizar que el paquete del análisis cumple su objetivo de realizar algunas clases del dominio o casos de uso.
+\item Describir las dependencias de forma que pueda estimarse el efecto de los cambios futuros.
+\end{itemize}
+Normas:
+\begin{itemize}
+\item Definir y mantener las dependencias del paquete con otros paquetes cuyas clases contenidas estén asociadas con él.
+\item Asegurarnos de que el paquete contiene las clases correctas. Intentar hacer cohesivo el paquete incluyendo solo objetos relacionados funcionalmente.
+\end{itemize}
+\subsection{Análisis Orientado a Objetos}
+\subsubsection{Modelado de comportamiento en el análisis}
+Se emplean para visualizar, especificar, construir y documentar los aspectos dinámicos de un sistema. Estos involucran cosas tales como el flujo de mensajes a lo largo del tiempo y el movimiento físico de componentes en una red.\\
+Así están organizados los diagramas de comportamiento de UML:
+\begin{comment}
+\begin{description}
+\item[Diagramas de caso de uso] Organiza los comportamientos del sistema.
+\item[Diagramas de secuencia] Centrados en la ordenación temporal de los mensajes.
+\item[Diagramas de comunicación] Centrados en la organización estructural de los objetos que envían y reciben mensajes.
+\item[Diagramas de estados] Centrados en el estado cambiante de un sistema dirigido por eventos.
+\item[Diagramas de actividades] Centrados en el flujo de control de actividades.
+\end{description}
+\end{comment}
+\paragraph{Diagrama de caso de uso} 
+Representa un conjunto de casos de uso y actores y sus relaciones. Se utilizan para describir la vista de casos de uso estática de un sistema. Son especialmente importantes para organizar y modelar el comportamiento de un sistema.
+\paragraph{Diagrama de comunicación}
+Es un diagrama de interacción que resalta la organización estructural de los objetos que envían y reciben mensajes. Muestra un conjunto de roles, enlaces entre ellos y los mensajes enviados y recibidos por las instancias que interpretan esos roles. Se utilizan para describir la vista dinámica de un sistema.
+\paragraph{Diagrama de estados}
+Representa una máquina de estados, transiciones, eventos y actividades. Se utilizan para describir la vista dinámica de un sistema. Son importantes para modelar el comportamiento de una interfaz, una clase o una colaboración.
+\paragraph{Diagrama de actividades}
+Muestra el flujo paso a paso en una computación. Una actividad muestra un conjunto de acciones, el flujo secuencial o ramificado de acción en acción y los valores que son producidos o consumidos por las acciones. Se utilizan para ilustrar la vista dinámica de un sistema. Son especialmente importantes para modelar la función de un sistema y resaltar el flujo de control en la ejecución de un comportamiento.
+\subsubsection{Modelado de estructura en el análisis}
+Se emplean para visualizar, especificar, construir y documentar los aspectos estáticos de un sistema. Estos incluyen la existencia y ubicación de clases, interfaces, colaboraciones, componentes y nodos.\\
+Así están organizados los diagramas de estructura de UML:
+\paragraph{Diagrama de clases}
+Presenta un conjunto de clases, interfaces y colaboraciones y las relaciones entre ellas. Se utilizan para describir la vista de diseño estática de un sistema.
+\paragraph{Diagrama de componentes}
+Muestra las partes internas, los conectores y los puertos que implementan un componente.
+\paragraph{Diagrama de estructura compuesta}
+Muestra la estructura interna de una clase o una colaboración. \emph{La diferencia entre componentes y estructura compuesta es mínima}.
+\paragraph{Diagrama de objetos}
+Representa un conjunto de objetos y sus relaciones. Se utilizan para describir estructuras de datos, instantáneas estáticas de las instancias de los elementos existentes en los diagramas de clases.
+\paragraph{Diagrama de artefactos}
+Muestra un conjunto de artefactos y sus relaciones con otros artefactos y con las clases a las que implementan. Se utilizan para mostrar las unidades físicas de implementación del sistema.
+\paragraph{Diagrama de despliegue}
+Muestra un conjunto de nodos y sus relaciones. Se utilizan para describir la vista de despliegue estática de una arquitectura.
+\subsection{Patrones Generales de Asignación de Responsabilidades (GRASP)}
+Los patrones GRASP constituyen un apoyo para la enseñanza que ayuda a uno a entender el diseño de objetos esencial, y aplica el razonamiento para el diseño de una forma sistemática, racional y explicable.
+\subsubsection{Responsabilidades y métodos}
+UML define una responsabilidad como ``un contrato u obligación de un clasificador''. Hay dos tipos de responsabilidades:
+\begin{itemize}
+\item Hacer.
+\begin{itemize}
+\item Hacer algo por él mismo, como crear un objeto o hacer un cálculo.
+\item Iniciar una acción en otros objetos.
+\item Controlar y coordinar actividades en otros objetos.
+\end{itemize}
+\item Conocer.
+\begin{itemize}
+\item Conocer los datos privador encapsulados.
+\item Conocer los objetos relacionados.
+\item Conocer las cosas que puede derivar o calcular.
+\end{itemize}
+\end{itemize}
+\subsubsection{Patrones}
+Es un repertorio tanto de principios generales como de soluciones basadas en aplicar ciertos estilos que les guían en la creación de software.\\
+Un patrón es una descripción de un problema y la solución, a la que se da un nombre y que se puede aplicar a nuevos contextos. Proporciona consejos sobre el modo de aplicarlo en varias circunstancias y considera los puntos fuertes y compromisos. El hecho de que tengan nombres apoya la identificación y facilita la comunicación.
+\subsubsection{Patrones GRASP}
+Son cinco:
+\begin{itemize}
+\item Experto en Información.
+\item Creador.
+\item Alta Cohesión.
+\item Bajo Acoplamiento.
+\item Controlador.
+\end{itemize}
+\paragraph{Experto en Información}
+\subparagraph{Problema}
+Asignar responsabilidades a los objetos de una forma que el sistema sea fácil de entender, mantener y ampliar; y existan más oportunidades para reutilizar componentes en futuras aplicaciones.
+\subparagraph{Solución}
+Asignar una responsabilidad al experto en información; es decir, la clase que tiene la información necesaria para realizar la responsabilidad.
+\subparagraph{Contraindicaciones}
+En algunas ocaciones la solución que sugiere el Experto no es deseable, normalmente debido a problemas de acoplamiento y cohesión. Por ejemplo, asignar responsabilidades de almacenamiento en bases de datos.
+\subparagraph{Beneficios}
+Se mantiene el encapsulamiento de la información y esto conlleva un bajo acoplamiento y también se estimula las definiciones de clases más cohesivas y ``lijeras'' que son más fáciles de entender y mantener.
+\paragraph{Creador}
+\subparagraph{Problema}
+Asignar el responsable de la creación de una nueva instancia de alguna clase de manera que el diseño pueda soportar un bajo acoplamiento, mayor claridad, encapsulación y reutilización.
+\subparagraph{Solución}
+Asignar a la clase $B$ la responsabilidad de crear una instancia de clase $A$ si se cumple uno o más de los casos siguientes:
+\begin{itemize}
+\item $B$ \emph{agrega} objetos de $A$.
+\item $B$ \emph{contiene} objetos de $A$.
+\item $B$ \emph{registra} instancias de objetos de $A$.
+\item $B$ utiliza \emph{más estrechamente} objetos de $A$.
+\item $B$ \emph{tiene los datos de inicialización} que se pasarán a un objetos de $A$ cuando sea creado ($B$ es un experto de $A$).
+\end{itemize}
+\subparagraph{Contraindicaciones}
+Cuando la creación requiere una complejidad significativa, como utilizar instancias recicladas por motivos de rendimiento, crear condicionalmente una instancia a partir de una familia de clases similares basado en el valor de alguna propiedad externa, etc.
+\subparagraph{Beneficios}
+Se soporta bajo acoplamiento, lo que implica menos dependencias de mantenimiento y mayores oportunidades para reutilizar.
+\paragraph{Bajo Acoplamiento}
+\subparagraph{Problema}
+Soportar bajas dependencias, bajo impacto del cambio e incremento de la reutilización. \emph{Evitar} los siguientes problemas:
+\begin{itemize}
+\item Los cambios en las clases relacionadas fuerzan cambios locales.
+\item Clases que son difíciles de entender de manera aislada.
+\item Clases que son difíciles de reutilizar puesto que su uso requiere la presencia adicional de las clases de las que depende.
+\end{itemize}
+\subparagraph{Solución}
+Asignar una responsabilidad de manera que el acoplamiento permanezca bajo.
+\subparagraph{Contraindicaciones}
+No suele ser un problema el acoplamiento alto entre objetos estables y elementos generalizados. Ejemplo, acoplamiento con las librerías \emph{java.util} de Java.
+\subparagraph{Beneficios}
+\begin{itemize}
+\item No afectan en las clases los cambios en otros componentes.
+\item Clases fáciles de entender de manera aislada.
+\item Clases convenientes para reutilizar.
+\end{itemize}
+\paragraph{Alta Cohesión}
+\subparagraph{Problema}
+Mantener la complejidad manejable. \emph{Evitar} los siguientes problemas:
+\begin{itemize}
+\item Clases difíciles de entender.
+\item Clases difíciles de reutilizar.
+\item Clases difíciles de mantener.
+\item Clases delicadas, constantemente afectadas por los cambios.
+\end{itemize}
+\subparagraph{Solución}
+Asignar una responsabilidad de manera que la cohesión permanezca alta.
+\subparagraph{Contraindicaciones}
+Puede ser la agrupación de responsabilidades o código en una clase o componente para simplificar el mantenimiento por una persona. Ejemplo, una clase que tenga sentencias de SQL embebidas que siguiendo otros buenos principios de diseño deberían distribuirse por diez clases.
+\subparagraph{Beneficios}
+\begin{itemize}
+\item Se incrementa la claridad y facilita la comprensión del diseño.
+\item Se simplifican el mantenimiento y las mejoras.
+\item Se soporta a menudo bajo acoplamiento.
+\item El grano fino de la funcionalidad altamente relacionada incrementa la reutilización porque una clase cohesiva se puede utilizar para un propósito muy específico.
+\end{itemize}
+\paragraph{Controlador}
+\subparagraph{Problema}
+Definir el responsable de gestionar un evento de entrada al sistema.
+\subparagraph{Solución}
+Asignar la responsabilidad de recibir o manejar un mensaje de evento del sistema a una clase que representa una de las siguientes opciones:
+\begin{itemize}
+\item Representa el sistema global, dispositivo o subsistema.
+\item Representa un escenario de caso de uso en el que tiene lugar el evento del sistema.
+\end{itemize}
+\subparagraph{Beneficios}
+\begin{itemize}
+\item Aumenta el potencial para la reutilización e tener interfaces conectables.
+\item Asegura que las operaciones del sistema tengan lugar en una secuencia válida.
+\end{itemize}

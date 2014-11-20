@@ -1,0 +1,336 @@
+\section{Unidad 2: Diseño de Sistemas de Información Orientado a Objetos con UML}
+\subsection{Definición de Diseño, principios de diseño de software orientado a objetos}
+\subsubsection{Definición}
+Proceso mediante el cual se aplican varias técnicas y principios con el objetivo de definir un dispositivo, un proceso o un sistema con suficiente nivel de detalle como para permitir su realización física.\\ 
+Proceso iterativo de transformar un modelo lógico en un modelo físico, teniendo en cuenta las restricciones del negocio.\\
+\subsubsection{Concepto}
+\begin{itemize}
+\item Diseño es el proceso de decidir cómo se va a construir el producto final.
+\begin{itemize}
+\item Produce especificaciones completas y detalladas.
+\end{itemize}
+\item El seño define las partes principales del producto.
+\begin{itemize}
+\item Cuáles son esas partes.
+\item Cómo interactúan.
+\item Cómo se integran.
+\end{itemize}
+\item Los diseños imprecisos hacen perder tiempo de ingeniería.
+\begin{itemize}
+\item Se requerirá tiempo para completar los espacios vacíos en la especificación.
+\item Las decisiones pueden no ser consistentes con la vista general del sistema.
+\item Las incosistencias existentes puede que se detecten recién en la integración o prueba del sistema.
+\end{itemize}
+\end{itemize}
+\clearpage
+\subsubsection{Diferencias entre modelo de análisis y de diseño}
+\begin{center}
+\begin{tabu}{p{7cm}|p{7cm}}
+\rowfont{\bfseries\itshape\large} Modelo de análisis & Modelo de diseño\\
+\hline
+\\[2pt]
+
+Modelo conceptual, porque es una obstracción del sistema y permite aspectos de la implementación. &
+Modelo físico, porque es un plano de la implementación.\\[2pt]
+Genérico en cuanto al diseño. &
+No genérico, específico para una implementación.\\[2pt]
+Tres estereotipos conceptiales sobre las clases: Control, Entidad, Interfaz. &
+Cualquier número de estereotipos (físicos) sobre las clases, dependiendo del lenguaje de implementación.\\[2pt]
+Menos formal. &
+Más formal.\\[2pt]
+Menos claro de desarrollar. &
+Más claro de desarrollar.\\[2pt]
+Menos capas.&
+Más capas.\\[2pt]
+Dinámico y no muy centrado en la secuencia. &
+Dinámico y muy centrado en la secuencia.\\[2pt]
+Bosquejo del diseño del sistema, incluyendo su arquitectura.&
+Manifiesto del diseño del sistema, incluyendo su arquitectura.\\[2pt]
+Puede no estar mantenido durante todo el ciclo de vida del software. &
+Debe ser mantenido durante todo el ciclo de vida del software.\\[2pt]
+Define una estructura. &
+Da forma al sistema preservando la estructura definida.
+\end{tabu}
+\end{center}
+\subsubsection{Principios de diseño}
+\paragraph{Características de un buen diseño}
+\subparagraph{Identificación y tratamiento de excepciones}
+\subparagraph{Independencia de componentes}
+\subparagraph{Prevención y tolerancia de defectos}
+\paragraph{Principios de diseño}
+\subparagraph{Identificar los aspectos de la aplicación que varían y separarlas de las que son estables}
+Hay partes del código que son más probables de que cambien con cada nuevo requerimiento del cliente, por lo tanto, es un comportamiento que debe ser separado de lo que no cambia.
+\subparagraph{Programar hacia una interfaz, no una implementación}
+Para hacer un programa flexible es recomendable usar supertipos (Interfaces o Clases Abstractas). El punto es explotar el polimorfismo. De esta manera, el objeto en tiempo de ejecución no está ligado al código.
+\subparagraph{Favorecer la composición sobre la herencia}
+Crear sistemas usando la composición nos da mucha flexibilidad. No solo nos deja encapsular una familia de algoritmos en distintas clases, sino también \emph{cambiar el comportamiento en tiempo de ejecución} siempre y cuando el objeto con el que estamos ``componiento'' implemente la interfaz de comportamiento apropiada.
+\subparagraph{\emph{Luchar} por obtener diseños de bajo acoplamiento entre objetos que interactúan}
+Diseños de bajo acoplamiento nos permite construir sistemas orientados a objetos flexibles que pueden lidiar con cambios de manera eficiente porque minimizan la interdependencia entre objetos.
+\subparagraph{Las clases deben estar abiertas para la extensión y cerradas para la modificación}
+El propósito es permitir la expansión de las clases para que puedan incorporar nuevos comportamientos sin modificar el código existente. De esta manera, se evitan errores que se puedan introducir al código que ya ha sido probado y optimizado.
+\subparagraph{Depender de abstracciones, no de clases concretas}
+Esto sugiere que nuestros componentes de alto nivel no deberían depender de los de bajo nivel. Ambos deberían depender de abstracciones.
+\subparagraph{Principio del menor conocimiento - Habla solo con tus amigos inmediatos}
+Este principio nos ayuda a prevenir diseños que tienen muchas clases acopladas que, si cambian en una parte del sistema, tiene que haber cambios en cascada a las partes subsiguientes. El principio dice que solo deberíamos invocar un método en un objeto si pertenece a:
+\begin{itemize}
+\item El objeto mismo.
+\item Objetos pasados por parámetros al método.
+\item Cualquier objeto en donde el método crea instancias.
+\item Cualquier componente del objeto.
+\end{itemize}
+\subparagraph{El principio de Hollywood - No nos llames, nostros te llamaremos}
+Nos ayuda a prevenir la degradación de dependencias. Esto pasa cuando tenemos componentes de alto nivel dependiendo de componentes de bajo nivel y estos, a su vez, dependen de componentes de alto nivel y estos dependen de otros componentes del mismo nivel y estos dependen de otros componentes de bajo nivel y así sucesivamente. Con este principio permitimos que los componentes de bajo nivel se relaciones entre sí formando un sistema y que los componentes de alto nivel determinen cuándo son necesarios y cómo.
+\subparagraph{Principio de Responsabilidad Única - Una clase debería tener solamente una razón para cambiar}
+Cuando se modifica el código de una clase se incrementan las oportunidades de introducir problemas. Teniendo dos razones para cambiar una clase hay más probabilidades de que este cambio introduzca problemas a los dos aspectos del diseño de la misma. Este principio nos guía para asignar cada responsabilidad a una clase y solo una clase.
+\subparagraph{No te repitas}
+Evitar la duplicación del código abstrayendo lo común y poniéndolo en un solo lugar
+\subparagraph{Principio de Liskov}
+Los subtipos deben ser sustituibles por sus tipos base. Este principio nos ayuda a plantear buenas herencias.
+\subsection{Aspectos que se diseñan en un sistema de información}
+\paragraph{Diseño arquitectónico}
+Define la relación entre los principales elementos estructurales del programa.
+\paragraph{Diseño de datos}
+Transforma los requerimientos en las estructuras de datos necesarias para implementar el software.
+\paragraph{Diseño de los procesos}
+Transforma elementos estructurales de la arquitectura del programa en una descripción procedimental de los componentes del software.
+\paragraph{Diseño de la interfaz}
+Describe cómo se comunica el software consigo mismo, con los sistemas que operan en él, con los dispositivos externos y con los usuarios.
+\paragraph{Diseño de formas de entrada/salida}
+Describe cómo se ingresa información al software y cómo se presentarán las salidas del mismo.
+\paragraph{Diseño de procediminetos manuales}
+Describe cómo integra el software al Sistema de Negocio.
+\subsection{Estrategias de Prototipado y de Ensamblaje de Componentes}
+\subsubsection{Estrategia de prototipado}
+\paragraph{Definición}
+Es una elección del modelo de proceso que se recomienda elegir a la hora de implementar un proyecto complejo, con dominio no familiar, que utilizará una tecnología desconocida; de ahí que surge la necesidad de requirirse el uso de prototipos en el diseño y la implementación, además de utilizarlos durante la validación de requerimientos.
+\begin{itemize}
+\item Es un modo de desarrollo de software.
+\item El prototipo es una aplicación que funciona.
+\item La finalidad del prototipo es probar varias suposiciones formuladas por analistas y usuarios con respecto a las características requeridas del sistema.
+\item Los prototipos se crean con rapidez, evolucionan a través de un proceso interactivo y tienen un bajo costo de desarrollo.
+\end{itemize}
+\paragraph{Concepto}
+\begin{itemize}
+\item Primera versión de un nuevo tipo de producto, en el que se han incorporado solo algunas características del sistema final, o no se han realizado completamente.
+\item Modelo o maqueta del sistema que se construye para complender mejor el problema y sus posibles soluciones:
+\begin{itemize}
+\item Evaluar mejor los requisitos.
+\item Probar opciones de diseño.
+\end{itemize}
+\end{itemize}
+\paragraph{Características de los prototipos}
+\begin{itemize}
+\item Funcionalidad limitada.
+\item Poca fiabilidad.
+\item Características de operación pobres.
+\item Prototipo aproximado de 10\% del presupuesto del proyecto.
+\end{itemize}
+\paragraph{Objetivo}
+\begin{itemize}
+\item Aclarar los requerimientos de los usuarios.
+\item Verificar la factibilidad del diseño del sistema.
+\end{itemize}
+\paragraph{Cuándo es conveniente usarlos}
+Siempre es conveniente pero especialmente cuando:
+\begin{itemize}
+\item El Área de aplicación no está bien definida.
+\item El costo del rechazo por parte de los usuarios, por no cumplir sus expectativas, es muy alto.
+\item Es necesario evaluar previamente el impacto del sistema en los usuarios y en la organización.
+\item Se usan nuevos métodos, técnicas, tecnología.
+\item No se conocen los requerimientos o es necesario realizar una evaluación de los requerimientos.
+\item Cuando los costos de inversión son altos.
+\item Cuando hay factores de riesgo alto asociados al proyecto.
+\end{itemize}
+\paragraph{Uso de los prototipos} \hspace{0pt}\\
+Para el cliente:
+\begin{itemize}
+\item Ayuda a establecer claramente los requisitos.
+\end{itemize}
+Para los desarrolladores:
+\begin{itemize}
+\item Validar corrección de la especificación.
+\item Aprender sobre problemas que se presentarán durante el diseño e implementación del sistema.
+\item Mejorar el producto.
+\item Examinar viabilidad y utilidad de la aplicación.
+\end{itemize}
+\paragraph{Beneficios}
+\begin{itemize}
+\item Aumentar la productividad.
+\item Desarrollo planificado.
+\item Entusiasmo de los usuarios respecto a los prototipos.
+\end{itemize}
+\paragraph{Tipos de prototipos}
+\begin{description}
+\item[Prototipado de interfaz de usuario:] Modelos de pantallas.
+\item[Prototipado funcional (Operacional):] Implementa algunas funciones y a medida que se comprueba que son las apropiadas, se ocrrigen, refinan y se añaden otras.
+\item[Modelos de rendimiento:] Evalúan el rendimiento de una aplicación crítica (no sirven al análisis de requisitos).
+\end{description}
+\paragraph{Desde el punto de vista de la utilidad, los prototipos pueden construirse:}
+\begin{itemize}
+\item Rápido o desechable:
+\begin{itemize}
+\item Sirve al análisis y validación de los requisitos.
+\item Después se redacta la especificación del sistema y se desecha el prototipo.
+\item La aplicación se desarrolla siguiendo un paradigma diferente.
+\item Puede ser un problema cuando el prototipo no se desecha y termina convirtiéndose en el sistema final.
+\end{itemize}
+\item Evolutivos
+\begin{itemize}
+\item Comienza con un sistema relativamente simple que implementa los requisitos más importantes o mejor conocidos.
+\item El prototipo se aumenta o cambia en cuanto se descubren nuevos requisitos.
+\item Finalmente, se convierte en el sistema requerido.
+\item Actualmente se usa en el desarrollo de sitios Web y en aplicaciones de comercio electrónico.
+\end{itemize}
+\end{itemize}
+\paragraph{Con respecto al alcance, los prototipos pueden clasificarse en:}
+\begin{description}
+\item[Vertical] Desarrolla completamente alguna de las funciones.
+\item[Horizontal] Desarrolla parcialmente todas las funciones.
+\end{description}
+\paragraph{Etapas del método con prototipos}
+\begin{enumerate}
+\item Identificación de requerimientos conocidos.
+\item Desarrollo de un modelo de trabajo.
+\item Participación del usuario.
+\item Revisión del prototipo.
+\item Iteración del proceso de refinamiento.
+\end{enumerate}
+\paragraph{Estrategias para el desarrollo de prototipos}
+\begin{description}
+\item[Prototipos para pantallas] El elemento clave es el intercambio de información con el usuario.
+\item[Prototipos para procedimientos de procesamiento] El prototipo incluye solo procesos sin considerar errores.
+\item[Prototipos para funciones básicas] Solo se desarrolla el núcleo de la aplicación, es decir solo los procesos básicos.
+\end{description}
+\paragraph{Tareas para los usuarios}
+\begin{itemize}
+\item Identificar la finalidad del sistema.
+\item Describir la salida del sistema.
+\item Describir los requerimientos de datos.
+\item Utilizar y evaluar el prototipo.
+\item Identificar las mejoras necesarias.
+\item Documentar las características no deseables.
+\end{itemize}
+\paragraph{Críticas}
+\begin{itemize}
+\item El cliente cree que es el sistema funcional.
+\item Peligro de familiarización con malas elecciones iniciales.
+\item Difícil de administrar: se necesita mucha experiencia.
+\item Alto costo
+\end{itemize}
+\subsubsection{Estrategia de Ensamblaje de Componentes}
+\begin{itemize}
+\item Es un modelo evolutivo de desarrollo de software.
+\item El modelo de ensamblaje de componentes incorpora muchas de las características del modelo en espiral.
+\item Es evolutivo por naturaleza y exige un enfoque iterativo para la creación del software.
+\item Configura aplicaciones desde componentes preparados de software (COTS).
+\end{itemize}
+\paragraph{En qué consiste}
+\begin{itemize}
+\item Identificar las clases candidatas. Se lleva a cabo examinando los datos que se van a manejar por parte de la aplicación y el algoritmo que se va a aplicar para conseguir el tratamiento.
+\item Las clases creadas en los proyectos de ingeniería del software anteriores se almacenan en una biblioteca de clases.
+\item La biblioteca de clases se examina para determinar si estas clases ya existe.
+\end{itemize}
+\paragraph{Niveles}
+\begin{itemize}
+\item De aplicación, en el que una aplicación completa se integra con el prototipo.
+\item De componente, en el que los componentes se integran en un marco de trabajo estándar.
+\end{itemize}
+\paragraph{Beneficios}
+Según estudios de reutilización, el ensamblaje de componentes lleva a una reducción del 70\% de tiempo de ciclo de desarrollo, un 84\% del coste del proyecto y un índice de productividad del 26,2\%.
+\paragraph{Ventajas de usar el Desarrollo de software basado en componentes}
+\begin{description}
+\item[Reutilización del software] Nos lleva a alcanzar un mayor nivel de reutilización de software.
+\item[Simplifica las pruebas] Permite que las pruebas sean ejecutadas probando cada uno de los componentes antes de probar el conjunto completo de componentes ensamblados.
+\item[Simplifica el mantenimiento del sistema] Cuando existe un débil acoplamiento entre componentes, el desarrollador es libre de actualizar y/o agregar componentes segñun sea necesario sin afectar otras partes del sistema.
+\item[Mayor calidad] Dado que un componente puede ser construido y luego mejorado continuamente por un experto u organización, la calidad de una aplicación basada en componentes mejorará con el paso del tiempo.
+\end{description}
+
+\paragraph{Ventajas de usar componentes de terceros:}
+\begin{description}
+\item[Ciclos de desarrollo más cortos] La adicción de una pieza dada de funcionalidad tomará días en lugar de meses o años.
+\item[Mejor ROI] Usando correctamente esta estrategia, el retorno sobre la inversión puede ser más favorable que desarrollando los componentes uno mismo.
+\item[Funcionalidad mejorada] Para usar un componente que contenga una pieza de funcionalidad, solo se necesita entender su naturaleza, más no sus detalles internos.
+\end{description}
+
+\subsection{Diseño en el Proceso Unificado de Desarrollo}
+\subsubsection{Objetivo}
+\begin{itemize}
+\item Aquirir una comprensión en profundidad de los aspectos relacionados con los requisitos no funcionales y restricciones relacionadas con los lenguajes de programación, componentes reutilizables, sistemas operativos, tecnologías, etc.
+\item Crear una entrada apropiada y un punto de partida para actividades de implementación subsiguientes capturando los requisitos o subsistemas individuales, interfaces y clases.
+\item Ser capaces de descomponer los trabajos de implementación en partes más manejables que puedan ser llevadas a cabo por diferentes equipos de desarrollo teniendo en cuenta la posible concurrencia.
+\end{itemize}
+\subsubsection{El papel del diseño en el ciclo de vida del software}
+El diseño es el centro de atención al final de la fase de elaboración y el comienzo de las iteraciones de construcción. El diseño está muy cercando al de implementación, lo que es natural para guardar y mantener el modelo de diseño a través del ciclo de vida completo del software.
+\subsubsection{Artefactos}
+\paragraph{Modelo de diseño}
+Es un modelo de objetos que describe la realización física de los casos de uso centrándose en cómo los requisitos funcionales y no funcionales, junto con otras restricciones relacionadas con el entorno de implementación, tienen impacto en el sistema a considerar.
+\paragraph{Clase de diseño}
+Es una abstracción sin costuras de una clase o construcción similar en la implementación del sistema.
+\paragraph{Realización de caso de uso de diseño}
+Es una colaboración en el modelo de diseño que describe cómo se realiza un caso de uso específico y como se ejecuta en términos de clase de diseño y sus objetivos. Proporciona una traza directa a una realización de caso de uso de análisis en el modelo de análisis.
+\subparagraph{Diagramas de clases}
+Es una clase de diseño y sus objetivos.
+\subparagraph{Diagramas de interacción}
+La secuencia de acciones en un caso de uso comienza cuando un actor invoca el caso de uso mediante el envío de algún tipo de mensaje al sistema.
+\subparagraph{Flujo de sucesos de diseño}
+Es una descripción textual que explica y complementa a los diagramas y a sus etiquetas.
+\subparagraph{Requisitos de la implementación}
+Son una descripción textual que recoge requisitos tales como los requisitos no funcionales sobre una realización de caso de uso.
+\paragraph{Subsistema de diseño}
+Son una forma de organizar los artefactos del modelo de diseño en piezas más manejables.
+\subparagraph{Subsistemas de servicio}
+Se utilizan en un nivel inferior de la jerarquía de subsistemas de diseño para aislar los cambios en los correspondientes subsistemas de servicio.
+\paragraph{Interfaz}
+Las interfaces se utilizan para especificar las operaciones que proporcionan las clases y los subsistemas del disñeo.
+\paragraph{Descripción de la arquitectura (Vista del modelo de diseño)}
+Muestra los artefactos del modelo de diseño relevantes para la arquitectura.
+\begin{itemize}
+	\item La descomposición del modelo de diseño en subsistemas, sus interfaces y las dependencias entre ellos.
+	\item Clases del diseño fundamentales.
+	\item Realizaciones de caso de uso de diseño que describen alguna funcionalidad importante y crítica que debe desarrollarse pronto dentro del ciclo de vida del software.
+\end{itemize}
+\paragraph{Modelo de despliegue}
+Es un modelo de objetos que describe la distribución física del sistema en términos de cómo se distribuye la funcionalidad entre los nodos del cómputo.
+\paragraph{Descripción de la arquitectura (Vista del modelo de despliegue}
+Contiene una vista de la arquitectura del modelo de despliegue que muestra sus artefactos relevantes para la arquitectura.
+\subsubsection{Trabajadores}
+\paragraph{Ingeniero de casos de uso}
+Es responsable de la integridad de una o más realizaciones de casos de uso de diseño y debe garantizar que cumplen los requisitos que se esperan de ellos.
+\paragraph{Ingeniero de componentes}
+Define y mantiene las operaciones, métodos, atributos, relaciones y requisitos de implementación de una o más clases del diseño garantizando que cada clase del diseño cumple los requisitos que se esperan de ella según las realizaciones de caso de uso en las que participa.
+\subsubsection{Actividades}
+\paragraph{Diseño de la arquitectura}
+Su objetivo es esbozar los modelos de diseño y despliegue y su arquitectura mediante la identificación de los siguientes elementos:
+\begin{itemize}
+	\item Nodos y sus configuraciones.
+	\item Subsistemas y sus interfaces.
+	\item Clases del diseño significativas para la arquitectura.
+	\item Mecanismos de diseño genéricos que tratan requisitos comunes.
+\end{itemize}
+\paragraph{Diseño de un caso de uso}
+Los objetivos de esta actividad son:
+\begin{itemize}
+	\item Identificar las clases del diseño y/o los subsistemas cuyas instancias son necesarias para llevar a cabo el flujo de sucesos del caso de uso.
+	\item Distribuir el comportamiento del caso de uso entre los objetos del diseño que interactúan y/o entre los subsistemas participantes.
+	\item Definir los requisitos sobre las operaciones de las clases del diseño y/o sobre los subsistemas y sus interfaces.
+	\item Capturar los requisitos de implementación del caso de uso.
+\end{itemize}
+\paragraph{Diseño de una clase}
+El objetivo es crear una clase del diseño que cumpla su papel en las realizaciones de los casos de uso y los requisitos no funcionales que se aplican a estos.
+\paragraph{Diseño de un subsistema}
+Los objetivos de esta actividad son:
+\begin{itemize}
+	\item Garantizar que el subsistema es tan independiente como sea posible de otros subsistemas y/o de sus intereses.
+	\item Garantizar que el subsistema proporciona las interfaces correctas.
+	\item Garantizar que el subsistema cumple su propósito de ofrecer una realización correcta de las operaciones tal y como se definen en las interfaces que proporciona.
+\end{itemize}
+\subsection{Diseño del Software Orientado a Objetos}
+\subsubsection{Diseño del Comportamiento del Software}
+Se refieren a algoritmos y asignación de responsabilidades a objetos.
+\subsubsection{Diseño de la Estructura del Software}
+Se refiere a cómo se combinan las clases y los objetos para formar estructuras más grandes.
+\subsubsection{Patrones de diseño}
+\paragraph{Introducción}
+Los patrones de diseño ayudan a diseñar software orientado a objetos reutilizable. Estos patrones resuelven problemas concretos de diseño y hacen que los diseños orientados a objetos sean más flexibles, elegantes y reutilizables.\\
+Cada patrón nomina, explica y evalúa un diseño importante y recurrente en los sistemas orientados a objetos. Pueden incluso mejorar la documentación y el mantenimiento de los sistemas existentes al proporcionar una especificación explícita de las interacciones entre clases y objetos.
+\paragraph{¿Qué es un patrón de diseño?}

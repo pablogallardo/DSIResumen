@@ -1,0 +1,38 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{verbatim}
+\usepackage{tabu}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\inputencoding{utf8}
+\title{Resumen teórico de Diseño de Sistemas}
+\author{Pablo G. Gallardo}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,RE]{\tiny{\leftmark}}
+\fancyfoot[LE,RO]{\thepage}
+\graphicspath{ {./images/} }
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+\setcounter{tocdepth}{2}
+\hypersetup{
+    colorlinks=true, % make the links colored
+    linkcolor=black, % color TOC links in black
+    urlcolor=blue, % color URLs in blue
+    linktoc=all % 'all' will create links for everything in the TOC
+}
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak{}
+	\thispagestyle{empty}
+	\cleardoublepage{}
+	\tableofcontents
+	\include{./tex/unidad1}
+	\include{./tex/unidad2}
+\end{document}
