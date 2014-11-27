@@ -399,3 +399,58 @@ El patrón Composite sirve para construir objetos complejos a partir de otros m�
 Esto simplifica el tratamiento de los objetos creados, ya que al poseer todos ellos una interfaz común, se tratan todos de la misma manera.\\
 \vspace*{\fill}
 \noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{composite}}
+\subparagraph{Decorator}
+El patrón Decorator responde a la necesidad de añadir dinámicamente funcionalidad a un Objeto. Esto nos permite no tener que crear sucesivas clases que hereden de la primera incorporando la nueva funcionalidad, sino otras que la implementan y se asocian a la primera.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{decorator}}
+\subparagraph{Facade}
+El patrón fachada viene motivado por la necesidad de estructurar un entorno de programación y reducir su complejidad con la división en subsistemas, minimizando las comunicaciones y dependencias entre éstos.\\
+Se aplicará el patrón fachada cuando se necesite proporcionar una interfaz simple para un subsistema complejo, o cuando se quiera estructurar varios subsistemas en capas, ya que las fachadas serían el punto de entrada a cada nivel. Otro escenario proclive para su aplicación surge de la necesidad de desacoplar un sistema de sus clientes y de otros subsistemas, haciéndolo más independiente, portable y reutilizable (esto es, reduciendo dependencias entre los subsistemas y los clientes).\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{facade}}
+\subparagraph{Flyweight}
+El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{flyweight}}
+\subparagraph{Proxy}
+El patrón Proxy es un patrón estructural que tiene como propósito proporcionar un subrogado o intermediario de un objeto para controlar su acceso.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{proxy}}
+\paragraph{Patrones de Comportamiento}
+\subparagraph{Template Method}
+Es un patrón de diseño enmarcado dentro de los llamados patrones de comportamiento, que se caracteriza por la definición, dentro de una operación de una superclase, de los pasos de un algoritmo, de forma que todos o parte de estos pasos son redefinidos en las subclases herederas de la citada superclase.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{template_method}}
+\subparagraph{Chain of Responsability}
+Es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y pasa la petición a través de la cadena hasta que es procesada por algún objeto. Este patrón es utilizado a menudo en el contexto de las interfaces gráficas de usuario donde un objeto puede contener varios objetos. Según si el ambiente de ventanas genera eventos, los objetos los manejan o los pasan.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{chain_of_responsability}}
+\subparagraph{Command}
+Este patrón permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación, ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además se facilita la parametrización de los métodos.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{command}}
+\subparagraph{Iterator}
+define una interfaz que declara los métodos necesarios para acceder secuencialmente a un grupo de objetos de una colección.\\
+Este patrón de diseño permite recorrer una estructura de datos sin que sea necesario conocer la estructura interna de la misma.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{iterator}}
+\subparagraph{Mediator}
+El patrón mediador define un objeto que encapsula cómo un conjunto de objetos interactúan. Este patrón de diseño está considerado como un patrón de comportamiento debido al hecho de que puede alterar el comportamiento del programa en ejecución.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{mediator}}
+\subparagraph{Memento}
+Memento, es un patrón de diseño, cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{memento}}
+\subparagraph{Observer}
+Definir una dependencia uno-a-muchos entre objetos, de tal forma que cuando el objeto cambie de estado, todos sus objetos dependientes sean notificados automáticamente. Se trata de desacoplar la clase de los objetos clientes del objeto, aumentando la modularidad del lenguaje, creando las mínimas dependencias y evitando bucles de actualización (espera activa o polling). En definitiva, normalmente, usaremos el patrón Observador cuando un elemento tiene que estar pendiente de otro, sin tener que estar encuestando de forma permanente si éste ha cambiado o no.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{observer}}
+\subparagraph{State}
+En determinadas ocasiones, cuando el contexto en el que se está desarrollando requiere que un objeto tenga diferentes comportamientos según el estado en que se encuentra, resulta complicado poder manejar el cambio de comportamientos y los estados de dicho objeto, todos dentro del mismo bloque de código. El patrón State propone una solución a esta complicación, creando básicamente, un objeto por cada estado posible del objeto que lo llama.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{state}}
+\subparagraph{Strategy}
+El patrón estrategia permite mantener un conjunto de algoritmos de entre los cuales el objeto cliente puede elegir aquel que le conviene e intercambiarlo dinámicamente según sus necesidades.\\
+\vspace*{\fill}
+\noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{strategy}}
