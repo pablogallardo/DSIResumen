@@ -89,6 +89,31 @@ Normas:
 \item Definir y mantener las dependencias del paquete con otros paquetes cuyas clases contenidas estén asociadas con él.
 \item Asegurarnos de que el paquete contiene las clases correctas. Intentar hacer cohesivo el paquete incluyendo solo objetos relacionados funcionalmente.
 \end{itemize}
+\subsubsection{Diferencia entre modelo de casos de uso y análisis}
+\begin{center}
+\begin{tabu}{p{7cm}|p{7cm}}
+\rowfont{\bfseries\itshape\large} Modelo de casos de uso & Modelo de análisis\\
+\hline
+\\[2pt]
+
+Descripton con el lenguaje del cliente. &
+Descripto con el lenguaje del desarrollador.\\[2pt]
+Vista externa del sistema. &
+Vista interna del sistema.\\[2pt]
+Estructurado por los casos de uso. &
+Estructurado por clases y paquetes estereotipados.\\[2pt]
+Utilizado fundamentalmente como contrato entre el cliente y los desarrolladores. &
+Utilizado fundamentalmente por los desarrolladores para comprender cómo debería darse forma al sistema.\\[2pt]
+Puede contener redundancias e inconsistencias. &
+No debería contener redundancias.\\[2pt]
+Captura la funcionalidad del sistema.&
+Esboza cómo llevar a cabo la funcionalidad.\\[2pt]
+Define casos de uso que se analizarán con más profundidad en el análisis. &
+Define realizaciones de casos de uso.
+\end{tabu}
+\end{center}
+\subsubsection{El papel del análisis en el ciclo de vida del software}
+Las iteraciones iniciales se centran en el análisis. Esto contribuye a tener una arquitectura estable y sólida y facilita una comprensión en profundidad de los requisitos. Más adelante, al término de la fase de elaboración y durante la construcción, cuando la arquitectura es estable y se comprenden los requisitos, el énfasis pasa en cambio al diseño y a la implementación.
 \subsection{Análisis Orientado a Objetos}
 \subsubsection{Modelado de comportamiento en el análisis}
 Se emplean para visualizar, especificar, construir y documentar los aspectos dinámicos de un sistema. Estos involucran cosas tales como el flujo de mensajes a lo largo del tiempo y el movimiento físico de componentes en una red.\\

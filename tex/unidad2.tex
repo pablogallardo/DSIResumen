@@ -454,3 +454,13 @@ En determinadas ocasiones, cuando el contexto en el que se está desarrollando r
 El patrón estrategia permite mantener un conjunto de algoritmos de entre los cuales el objeto cliente puede elegir aquel que le conviene e intercambiarlo dinámicamente según sus necesidades.\\
 \vspace*{\fill}
 \noindent\makebox[\textwidth]{\includegraphics[width=1\textwidth]{strategy}}
+\subsection{Mapeo de estructuras de clases a bases de datos relacionales}
+\subsubsection{Problema de la impedancia}
+En una base de datos relacional, la información se almacena en tablas. Los tipos a ser usados en las tablas son mayormente los tipos primitivos. Esto trae problemas al almacenar objetos.
+\begin{itemize}
+\item Los datos pueden almacenarse y no el comportamiento.
+\item Solo los tipos de datos primitivos pueden almacenarse y no las estructuras complejas.
+\end{itemize}
+En vista de los problemas enunciados, necesitamos transformar nuestra estructura de información de objeto a una estructura orientada a tablas. Este problema se refiere a veces como el problema de la impedancia.\\
+El problema de la impedancia trata aún otro problema: crea un fuerte acoplamiento entre la aplicación y el DBMS.\\
+También atravesamos por dificultades si un objeto es heredado por otro.
