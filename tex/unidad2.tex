@@ -463,4 +463,47 @@ En una base de datos relacional, la información se almacena en tablas. Los tipo
 \end{itemize}
 En vista de los problemas enunciados, necesitamos transformar nuestra estructura de información de objeto a una estructura orientada a tablas. Este problema se refiere a veces como el problema de la impedancia.\\
 El problema de la impedancia trata aún otro problema: crea un fuerte acoplamiento entre la aplicación y el DBMS.\\
-También atravesamos por dificultades si un objeto es heredado por otro.
+\subsection{Herencia}
+Los objetos que deberían ser persistentes deberían ser mapeados en tablas de la base de datos. Se las clases se heredan unas a otras, hay principalmente dos maneras diferentes de resolver esto:
+\begin{enumerate}
+\item Los atributos heredados se copian a todas las tablas que representan las clases descendientes. Ninguna tabla representará la clase abstracta. \emph{Se elimina al ``padre''}.
+\item La clase abstracta está en su propia tabla, a la que las tablas de las clases descendientes hacen referencia.
+\end{enumerate}
+¿Cuál alternativa es la mejor? No hay una mejor solución general para todos los casos, pero vamos a resaltar algunas de las propiedades de ambas alternativas. La primera es normalmente más rápida dado que no es necesario ningún joining o búsqueda en varias tablas para obtener información de un objeto.. Sin embargo, el tamaño de la base de datos aumentará dado que las columnas heredadas deben duplicarse. Además, si los cambios ocurren en los atributos heredados, los mismos afectarán a las tablas de todas las clases descendientes. En esta solución no tenemos ningún conocimiento de qué columnas se representan en la tabla que representa la clase abstracta. Una tabla específica que registre las diversas columnas sería entonces necesaria.\\
+La segunda alternativa incluye menos redundancia, pero puede conducir a problemas si los identificadores son comunes en la tabla de la clase abstracta. Por ejemplo, si tenemos una clase abstracta persona; y estudiante y profesor son descendientes, entonces ninguna persona puede ser estudiante y profesor a la vez.
+\subsection{Diseño de Interfaces de Usuario}
+Para que un sistema alcance su potencial máximo es fundamental que su interfaz de usuario sea diseñada para ajustarse a las habilidades, experiencia y expectativas de sus usuarios previstos. Un buen diseño de la interfaz es crítico para la confiabilidad del sistema. Muchos de los llamados errores de usuario son causados por el hecho de que las interfaces de usuario no consideran las habilidades de los usuarios reales y su entorno de trabajo.\\
+\subsubsection{Factores a tener en cuenta}
+\begin{enumerate}
+\item Las personas tienen una memoria limitada a corto plazo.
+\item Todos cometemos errores, especialmente cuando tenemos que manejar demasiada información o estamos estresados.
+\item Poseemos un amplio rango de capacidades físicas.
+\item Tenemos diferentes preferencias de interacción.
+\end{enumerate}
+\subsubsection{Principios de diseño de interfaces gráficas}
+\begin{tabu}{p{7cm}|p{7cm}}
+\rowfont{\bfseries\itshape\large} Principio & Descripción\\
+\hline
+\\[2pt]
+
+Familiaridad de usuario. &
+La interfaz debe utilizar términos y conceptos obtenidos de la experiencia de las personas que más utilizan el sistema.\\[2pt]
+Uniformidad. &
+Siempre que sea posible, la interfaz debe ser uiforme en el sentido de que las operaciones comparables se activen de la misma forma.\\[2pt]
+Mínima sorpresa &
+El comportamiento del sistema no debe provocar sorpresa a los usuarios.\\[2pt]
+Recuperabilidad. &
+La interfaz debe incluir mecanismos para permitir a los usuarios recuperarse de los errores.\\[2pt]
+Guía de usuario. &
+Cuando ocurran errores, la interfaz debe proporcionar retroalimentación significativa y características de ayuda sensible al contexto.\\[2pt]
+Diversidad de usuarios. &
+La interfaz debe proporcionar características de interacción apropiadas para los diferentes tipos de usuarios del sistema.
+\end{tabu}
+\end{center}
+
+\subsubsection{Recursos de recuperación de errores}
+\begin{enumerate}
+\item Confirmación de acciones destructivas.
+\item Proporcionar un recurso para deshacer.
+\item Generar puntos de control.
+\end{enumerate}
