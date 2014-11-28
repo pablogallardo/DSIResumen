@@ -481,6 +481,7 @@ Para que un sistema alcance su potencial máximo es fundamental que su interfaz 
 \item Tenemos diferentes preferencias de interacción.
 \end{enumerate}
 \subsubsection{Principios de diseño de interfaces gráficas}
+\begin{center}
 \begin{tabu}{p{7cm}|p{7cm}}
 \rowfont{\bfseries\itshape\large} Principio & Descripción\\
 \hline
@@ -506,4 +507,93 @@ La interfaz debe proporcionar características de interacción apropiadas para l
 \item Confirmación de acciones destructivas.
 \item Proporcionar un recurso para deshacer.
 \item Generar puntos de control.
+\end{enumerate}
+\subsubsection{Interacción del Usuario}
+\begin{tabu}{|p{3cm}|p{3cm}|p{5cm}|p{3cm}|}
+\hline
+Estilos de Interacción &
+Principales Ventajas &
+Principales Desventajas &
+Ejemplos de aplicación\\
+\hline
+Manipulación directa &
+Interacción rápida e intuitiva. Fácil de aprender &
+Puede ser difícil de implementar. Solo es adecuada donde existe una metáfora visual para las tareas y objetos &
+Videojuegos y Sistemas CAD\\[2pt]
+Selección de menús &
+Evita errores del usuario. Se requiere teclear poco &
+Lenta para usuarios experimientados. Puede llegar a ser compleja si existen muchas opciones en el menú &
+La mayoría de los sistemas de propósito general\\[2pt]
+Rellenado de formularios &
+Introducción de datos sencilla &
+Ocupa mucho espacio en laq pantalla. Causa problemas cuando las opciones del usuario no se ajustan a los campos del formulario &
+Control de stock. Procesamiento de préstamos personales\\[2pt]
+Lenguaje de comandos &
+Poderoso y flexible &
+Difícil de aprender. Gestión pobre de errores &
+Sistemas operativos. Sistemas de comandos de control\\[2pt]
+Lenguaje natural &
+Accesible a usuarios casuales. Fácil de aplicar &
+Se requiere teclear más. Los sistemas de comprensión de lenguaje natural no son fiables &
+Sistemas de recuperación de información\\[2pt]
+\hline
+\end{tabu}
+\subsubsection{Pautas para el uso del color}
+\begin{center}
+\begin{tabu}{p{7cm}|p{7cm}}
+\rowfont{\bfseries\itshape\large} Factor & Descripción\\
+\hline
+\\[2pt]
+
+Contexto &
+Donde sea posible, los mensajes generados por el sistema deben reflejar el contexto actual del usuario. En lo posible el sistema debe ser consciente de lo que está haciendo el usuario y generar mensajes relacionados con su actividad.\\[2pt]
+Experiencia &
+Al aumentar la familiaridad de los usuarios con el sistema también se aumenta su molestia por los mensajes largos y significativos. Sin embargo, los principiantes tienen dificultades en comprender los mensajes cortos y concisos del problema. Se deben proporcionar ambos tipos de mensajes y permitir al usuario controlar la concisión de los mensajes.\\[2pt]
+Nivel de habilidad &
+Los mensajes se deben adaptar a las habilidades del usuario así como a su experiencia. \\[2pt]
+Estilo &
+Los mensajes deben ser positivos en vez de negativos. Deben estar escritos en modo activo y no en pasivo. No deben ser insultantes o tratar de ser graciosos.\\[2pt]
+Cultura &
+En la medida de lo posible, el diseñador de mensajes debe estar familiarizado con la cultura del país donde se vende el sistema. Existen distintas diferencias culturales entre Europa, Asia y América.
+
+\end{tabu}
+\end{center}
+\subsubsection{El proceso de diseño de la interfaz de usuario}
+Es un proceso iterativo donde los usuario interactúan con los diseñadores y prototipos de interfacz para decidir las características, organización, apariencia y funcionamiento de la interfaz de usuario. Existen tres actividades en este proceso:
+\begin{description}
+\item[Análisis del usuario] Se desarrolla una comprensión de las tareas que este realiza, su entorno de trabajo, etc.
+\item[Prototipado del sistema] Se desarrollan prototipos del sistema y se los expone a los usuarios quienes pueden guiar la evolución de la misma.
+\item[Evaluación de la interfaz] Se recopila información de las experiencias reales de los usuarios con la interfaz.
+\end{description}
+\subsubsection{Atributos de usabilidad}
+\begin{center}
+\begin{tabu}{p{7cm}|p{7cm}}
+\rowfont{\bfseries\itshape\large} Atributo & Descripción\\
+\hline
+\\[2pt]
+
+Aprendizaje &
+¿Cuánto tiempo tarda un usuario nuevo en ser protivo con el sistema?\\[2pt]
+Velocidad de funcionamiento &
+¿Cómo responde el sistema a las operaciones de trabajo del usuario?\\[2pt]
+Robustez &
+¿Qué tolerancia tiene el sistema a los errores del usuario? \\[2pt]
+Recuperación &
+¿Cómo se recupera el sistema a los errores del usuario?\\[2pt]
+Adaptación &
+¿Está muy atado el sistema a un único modelo de trabajo?
+
+\end{tabu}
+\end{center}
+
+\subsubsection{Las ocho reglas de Shneiderman}
+\begin{enumerate}
+\item Buscar siempre la coherencia
+\item Permitir el uso de `shortcuts'
+\item Dar realimentación de información
+\item Diseñar diálogos que tengan un fin
+\item Permitir manejos simples de los errores
+\item Permitir deshacer las acciones con facilidad
+\item Permitir que el centro de control sea interno
+\item Reducir la carga de la memoria inmediata
 \end{enumerate}
