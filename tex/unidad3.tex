@@ -18,3 +18,29 @@ Es la asignación de modelos de requerimiento esenciales a una tecnología espec
 	\item Análisis del sistema.
 	\item Reutilización a gran escala.
 \end{itemize}
+\subsubsection{Requerimiento no funcionales afectados por la arquitectura}
+\begin{description}
+	\item[Rendimiento] Si es un requerimiento crítico, la arquitectura debería diseñarse para identificar las operaciones críticas en un pequeño número de subsistemas con la mínima comunicación como sea posible entre ellas.
+	\item[Protección] Si es un requerimiento crítico, debería usarse una arquitectura estructurada en capas, con las más crñiticas protegidas en capas más internas y aplicando una validación de seguridad de alto nivel en dichas capas.
+	\item[Seguridad] Si es un requerimiento crítico, la arquitectura debería diseñarse para que las operaciones relacionadas con la seguridad se localizaran en un único subsistema o en un pequeño número de subsistemas.
+	\item[Disponibilidad] Si es un requerimiento crítico, la arquitectura debería diseñarse para incluir componentes redundantes y para que sea posible reemplazar y actualizar componentes sin detener el sistema.
+	\item[Mantenibilidad] Si es un requerimiento crítico, la arquitectura del sistema debería diseñarse usando componentes independientes de grano fino que puedan modificarse con facilidad.
+\end{description}
+\subsubsection{Conflictos arquitectónicos en requerimientos no funcionales}
+\begin{itemize}
+	\item Utilizar componentes de granularidad alta mejora la performance pero reduce mantenibilidad.
+	\item La introducción de datos redundantes mejora la disponibilidad peor hace la seguridad más difícil.
+	\item La localización de aspectos de seguridad relacionados usualmente significa más comunicación por lo tanto degrada la performance.
+\end{itemize}
+\subsubsection{Modelado de la Arquitectura}
+El modelo arquitectónico mapea los requerimientos funcionales del análisis a una arquitectura tecnológica. Debe considerar información sobre:
+\begin{itemize}
+	\item Volúmenes de Datos.
+	\item Funcionalidad más demandada en el negocio.
+	\item Distribución geográfica.
+	\item Distribución del Procesamiento de datos.
+	\item Dónde se guardarán los datos.
+	\item Cuáles procesos se ejecutarán en qué procesadores y que tanta comunicación se requerirá entre ellos.
+\end{itemize}
+\subsection{Patrones Arquitectónicos}
+\subsection{Vistas Arquitectónicas}
