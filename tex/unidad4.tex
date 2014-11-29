@@ -1,0 +1,37 @@
+\section{Unidad 4: Prueba del Sistema de Información}
+\subsection{Pruebas de software}
+\subsubsection{Conceptos generales}
+La prueba es un proceso destructivo porque tenemos que indagar sobre lo que hicimos para detectar lo que hicimos mal.\\
+Es conocido que la corrección de una falla provoca fallas adicionales, en consecuencia, si una falla aparece debemos probar todo el software.\\
+La actividad de prueba puede normalmente dividirse en:
+\begin{description}
+	\item[Verificación] ¿Estamos construyendo el sistema \emph{correctamente}?
+	\item[Validación] ¿Estamos construyendo el sistema correcto?
+\end{description}
+\subsubsection{Tipos de prueba}
+\begin{description}
+	\item[Test de Operación] Es el más común. El sistema es probado en operación normal.
+	\item[Test de Escala Completa] Ejecutamos el sistema \emph{al máximo} con todos los equipos conectados y usados por muchos usuarios ejecutando casos de uso simultaneamente.
+	\item[Test de Performance o de Capacidad] El objetivo de esta prueba es medir la capacidad de procesamiento del sistema.
+	\item[Test de Sobrecarga] Cumple la función de determinar cómo se comporta el sistema cuando es \emph{sobrecargado}
+	\item[Test Negativos] El sistema es sistemática e intencionalmente usado en forma incorrecta.
+	\item[Test basados en requerimientos] Estas pruebas son las que pueden mapearse directamente desde la especificación de requerimientos.
+	\item[Test Esgonómico] Son muy importantes si el sistema será usado por gente inexperta. Se prueban la consistencia de la interfaz, consistencia entre las interfaces de los distintos casos de uso, si los menús son lógicos y legibles y si se entienden los mensajes de falta.
+	\item[Test de documentación de usuario] Se prueba la documentación del sistema.
+	\item[Test de aceptación] Es ejecutado por la organización que solicita el sistema.
+\end{description}
+\subsubsection{Niveles de prueba}
+\paragraph{Prueba de Unidad}
+Involucra clases, bloques y paquetes de servicio. Consiste en:
+\begin{description}
+	\item[Prueba de Especificación o Caja Negra] Verifican el comportamiento de la interfaz de la unidad. \emph{Lo que hace} sin importar \emph{cómo}. Es importante no solo ver que se produzca una salida, sino que la misma sea correcta.
+	\item[Prueba Estructural o de Caja Blanca] Se verifica si la estructura interna es la correcta.
+	\item[Prueba Basada en estados] Prueba la interacción entre las operaciones de una clase, monitoreando los cambios que tienen lugar en los atributos de los objetos.
+\end{description}
+\paragraph{Pruebas de Integración}
+Una vez que las unidades han sido certificadas en las pruebas, estas deberían integrarse en unidades más grandes y finalmente al sistema. El propósito de las pruebas de integración es determinar si las distintas unidades que han sido desarrolladas trabajan apropiadamente, juntas.\\
+Las pruebas de integración se hacen probando cada caso de uso, uno a la vez desde dos puntos de vista:
+\begin{description}
+	\item[Uno interno] Basado en los diagramas de interacción.
+	\item[Uno externo] Basado en las descripciones del modelo de requerimientos.
+\end{description}
