@@ -2,6 +2,12 @@
 \subsection{Diseño Arquitectónico}
 \subsubsection{¿Qué es?}
 Es la asignación de modelos de requerimiento esenciales a una tecnología específica. Es el plan del Diseño
+\subsubsection{Proceso de Diseño Arquitectónico}
+\begin{itemize}
+	\item Determinar los requerimientos arquitectónicos.
+	\item Diseño Arquitectónico.
+	\item Validación.
+\end{itemize}
 \subsubsection{Rol del arquitecto}
 \begin{itemize}
 \item Revisa y negocia los requerimientos
@@ -42,5 +48,143 @@ El modelo arquitectónico mapea los requerimientos funcionales del análisis a u
 	\item Dónde se guardarán los datos.
 	\item Cuáles procesos se ejecutarán en qué procesadores y que tanta comunicación se requerirá entre ellos.
 \end{itemize}
+\subsubsection{Salidas del Modelo Arquitectónico}
+\begin{itemize}
+	\item Distribución geográfica de los requerimientos de computación.
+	\item Componentes de hardware para las máquinas clientes y para los servidores.
+	\item Configuración y cantidad de niveles de hardware.
+	\item Mecanismos y lenguajes de comunicación de la red.
+	\item Sistema Operativo.
+	\item Paradigma de Desarrollo.
+	\item Lenguaje de Presentación (Front end)
+	\item Lenguaje de fondo (back end)
+	\item Sistema de Administración de Base de Datos.
+	\item Ubicación/nes de los procesos.
+	\item Ubicación/nes de los datos físicos.
+	\item Estrategias de sincronización de los datos distribuidos físicamente.
+\end{itemize}
 \subsection{Patrones Arquitectónicos}
+\subsubsection{Arquitectura Estratificada o en capas (Layered Style)}
+Consiste en una pila de capas, donde cada capa actúa como máquina virtual de la capa de arriba. En un estilo estratificado simple, las capas sólo pueden usar la capa que está directamente debajo. La restricción significa que las capas subsiguientes más abajo están ocultas.
+\paragraph{Calidad resultante}
+La restricción del estilo trata directamente con los atributos de: modificabilidad, portabilidad, reusabilidad. Dado que las capas dependen sólo de la inmediata inferior las capas subsecuentes pueden ser intercambiadas o emuladas. Las capas superiores dan más oportunidades de sustitución frente a un posible problema de performance.
+\paragraph{Ventajas}
+\begin{itemize}
+	\item Sustitución de capas completas en tanto se conserve la interfaz.
+	\item En cada capa pueden incluirse facilidades redundantes para aumentar confiabilidad.
+\end{itemize}
+\paragraph{Desventajas}
+\begin{itemize}
+	\item Difícil mantener separación limpia entre capas y puede darse que capas de nivel superior se comuniquen con las de nivel inferior no adyacente.
+	\item El rendimiento suele ser un problema, debido a múltiples niveles de interpretación de una solicitud de servicios mientras se procesa en cada capa.
+\end{itemize}
+\subsubsection{Arquitectura de Repositorio o Modelo Centrado}
+\paragraph{Ventajas}
+\begin{itemize}
+	\item Los componentes pueden ser independientes, no necesitan conocer la existencia de otros componentes.
+	\item Los cambios hechos por un componente se pueden propagar hacia todos los componentes.
+	\item La totalidad de los datos se puede gestionar de manera consistente, centralizada, pues todos están en un lugar.
+	\item Es extensible, se pueden agregar vistas y controladores más tarde, fácilmente.
+	\item La concurrencia puede darse si vistas y controladores corren en sus propios hilos o procesos e incluso en hardwares diferentes.
+\end{itemize}
+\paragraph{Desventajas}
+\begin{itemize}
+	\item El repositorio es un punto de falla único, los problemas en el repositorio afectan a todo el sistema.
+	\item Puede ser ineficiente al organizar la comunicación a través del repositorio.
+	\item Difícil de distribuir en forma eficiente. Es posible distribuir un repositorio lógicamente centralizado, puede haber problemas con la redundancia e inconsistencia de los datos.
+\end{itemize}
+\subsubsection{Arquitectura Modelo-Vista-Controlador (MVC)}
+\begin{itemize}
+	\item Desacopla el modelo de las vistas estableciendo un modelo de suscripción/ notificación.
+	\begin{itemize}
+		\item La vista debe asegurarse que su apariencia refleja el estado del modelo.
+		\item Frente a cambios el modelo se encarga de avisar a las vistas que dependen de él.
+		\item La vista se actualiza a sí misma.
+	\end{itemize}
+	\item Se pueden crear varias vistas de un modelo, para ofrecer diferentes presentaciones.
+\end{itemize}
+\paragraph{Ventajas}
+\begin{itemize}
+	\item Permite que los datos cambien de manera independiente de su representación y viceversa.
+	\item Soporte distintas representaciones de los mismos datos, y los cambios en una representación se muestran en todos ellos.
+\end{itemize}
+\paragraph{Desventajas}
+Puede implicar código adicional y complejidad de código cuando el modelo de datos y las interacciones son simples.
+\subsubsection{Arquitectura Publicar-Suscribir (Publish-Suscribe)}
+\begin{itemize}
+	\item Componentes independientes publican eventos y otros se suscriben a ellos.
+	\item Los publicantes ignoran el motivo global por el cual el evento es publicado, los suscriptores ignoran porque o quien publica el evento y dependen sólo del evento no de quien lo publica.
+	\item Cada tópico puede tener más de un publicante y los publicantes pueden aparecer y desaparecer dinámicamente, lo que le da flexibilidad sobre configuraciones estáticas.
+	\item Los suscriptores pueden suscribirse y des-suscribirse dinámicamente a un tópico.
+\end{itemize}
+\paragraph{Ventajas}
+\begin{itemize}
+	\item El principal beneficio es desacoplar los componentes que producen los eventos de quienes los consumen, lo que hace la arquitectura mantenible y evolucionable.
+	\item El bus de evento agrega una capa de indirección entre productores y consumidores, lo que podría dañar la performance del sistema. No obstante existen recursos reusables que hacen ajustes a la performance.
+	\item Los canales (buses) de eventos varían en la propiedades que soportan.
+\end{itemize}
+\subsubsection{Arquitectura Comunicando (Messaging)}
+\begin{itemize}
+	\item Esta arquitectura desacopla emisores de receptores utilizando una cola
+de mensajes intermedia.
+	\item El emisor envía un mensaje al receptor y sabe que eventualmente será entregado, aunque la red esté caída o el receptor no esté disponible.
+	\item El patrón tiene inherentemente bajo acoplamiento, esto promueve alta modificabilidad, dado que emisores y receptores no se conectan directamente.
+	\item Los cambios en los formatos de los mensajes de los receptores pueden causar cambios en las implementaciones de los emisores.
+	\item Los formatos de mensajes auto-descriptivos reducen esta dependencia.
+\end{itemize}
+\paragraph{Características}
+\begin{itemize}
+	\item El procesamiento de datos se organiza de forma que cada componente de procesamiento (filtro) sea discreto y realice un tipo de transformación de datos. Los datos fluyen (como en una tubería) de un componente a otro para su procesamiento.
+	\item La característica clave es que la red completa de tuberías y filtros está continua e incrementalmente procesando datos.
+	\item Aplica a elementos de tiempo de ejecución, es parte de la vista de ejecución (runtime)
+	\item Se utiliza en aplicaciones de procesamiento de datos (tanto basadas en lotes [batch] como en transacciones, también puede usarse en software embebido.
+\end{itemize}
+\paragraph{Ventajas}
+\begin{itemize}
+	\item Fácil de entender y soporta reutilización de transformación.
+	\item El estilo de flujo de trabajo coincide con la estructura de muchos procesos empresariales.
+	\item La evolución al agregar transformaciones es directa.
+	\item Puede implementarse como sistema secuencial o como uno concurrente.
+\end{itemize}
+\paragraph{Desventajas}
+\begin{itemize}
+	\item El formato para transferencia de datos debe acordarse entre las	transformaciones que se comunican.
+	\item Cada transformación debe analizar sus entradas y sintetizar sus salidas al formato acordado.
+	\item Esto aumenta la carga del sistema y dificulta la reutilización de transformaciones funcionales que usen estructuras de datos incompatibles.
+	\item Son inapropiadas para aplicaciones interactivas.
+\end{itemize}
+\subsubsection{Arquitectura Lote-Secuencial (Batch-Sequential)}
+\begin{itemize}
+	\item Los datos fluyen de una etapa a otra y es procesado incrementalmente.
+	\item A diferencia del Pipe & Filter cada etapa completa todo su procesamiento antes de escribir su salida.
+	\item Los datos fluyen entre etapas en una cadena, pero es más común escribir en un archivo o disco.
+\end{itemize}
+\subsubsection{Arquitectura Agente (Broker)}
+\paragraph{Propiedades clave del patrón}
+\begin{description}
+	\item [Arquitectura Hub-and.spoke] El agente actúa como concentrador de mensajes y los remitentes y receptores se conectan como rayos. Las conexiones al agente son por medio de puertos asociados a un formato específico de mensaje.
+	\item[Realiza ruteo de mensajes] El agente incrusta la lógica de procesamiento para entregar un mensaje recibido en un puerto de entrada en el puerto de salida. La entrega.
+	\item[Realiza transformación de mensajes] El agente lógico transforma el tipo de mensaje de origen recibido en el puerto de entrada en el tipo de mensaje de destino requerido por el puerto de salida.
+\end{description}
+\subsubsection{Arquitectura Coordinador de Proceso (Process Coordinator)}
+\begin{description}
+	\item[Encapsulamiento de Proceso] El coordinador de proceso encapsula la secuencia de pasos necesarios para completar un proceso de negocio. La secuencia puede ser arbitrariamente compleja. El coordinador es un único de definición para el proceso de negocio, haciendo más fácil de comprender y modificar. Recibe un requerimiento de inicio de proceso, llama a los servidores en el orden definido por el proceso y emite los resultados.
+	\item[Bajo Acoplamiento] Los componentes del servidor son inconscientes de su rol en el proceso de negocio general, y del orden de los pasos del proceso. Los servidores simplemente definen un conjunto de servicios que pueden ejecutar y el coordinador los llama cuando es necesario como parte del proceso de negocio.
+	\item[Comunicaciones Flexibles] Las comunicaciones entre el coordinador y los servidores pueden ser sincrónicas o asincrónicas. Para las comunicaciones sincrónicas, el coordinador espera hasta que el servidor responda. Para las comunicaciones asincrónicas, el coordinador provee una llamada o respuesta cola/tópico, y espera hasta que el servidor responde utilizando.
+\end{description}
+
 \subsection{Vistas Arquitectónicas}
+\subsubsection{Tipos de vistas}
+\begin{description}
+	\item[Tipo de Vista de Módulo] Contiene vistas de los elementos que se pueden ver en tiempo de compilación. Definiciones de tipos de componentes, puertos y conectores, clases e interfaces.
+	\item[Tipo de Vista de Ejecución] Contiene vistas de los elementos que se pueden ver en tiempo de ejecución. Incluye escenarios de funcionalidad, listas de responsabilidad y ensambles de componentes. Instancias de componentes, conectores y puertos (como objetos).
+	\item[Tipo de Vista de Distribución] Contiene vistas de elementos relacionados con la distribución del software en el hardware.
+\end{description}
+\subsubsection{Vistas en el PUD}
+\begin{description}
+	\item[Vistas de Diseño] Clases, interfaces, colaboraciones.
+	\item[Vistas de implementación] Componentes.
+	\item[Vista de Proceso] Clases Activas.
+	\item[Vista de Despliegue] Nodos.
+	\item[Vista de Funcionalidad] Vista de Casos de Uso.
+\end{description}
