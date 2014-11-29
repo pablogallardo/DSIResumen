@@ -35,3 +35,31 @@ Las pruebas de integración se hacen probando cada caso de uso, uno a la vez des
 	\item[Uno interno] Basado en los diagramas de interacción.
 	\item[Uno externo] Basado en las descripciones del modelo de requerimientos.
 \end{description}
+\paragraph{Prueba del Sistema}
+Una vez que se han probado todos los casos de uso por separado se probará el sistema completo. Algunos casos de uso son ejecutados en paralelo y el sistema es sometido a diferentes cargas.
+\subsection{Prueba en el Proceso Unificado de Desarrollo}
+\subsubsection{Objetivo}
+\begin{itemize}
+	\item Planificar las pruebas necesarias en cada iteración.
+	\item Diseñar e implementar las pruebas creanto los casos de prueba que especifican qué probar.
+	\item Realizar las diferentes pruebas y manejar los resultados de cada prueba sistemáticamente.
+\end{itemize}
+\subsubsection{El papel de la prueba en el ciclo de vida del software}
+La realización de pruebas se centra en las fases de elaboración, cuando se prueba la línea base ejecutable de la arquitectura y de construcción cuando el grueso del sistema está implementado. Duerante la fase de transición el centro se desplaza hacia la corrección de defectos durante los primeros usos y a las pruebas de regresión.
+\subsubsection{Tipos de pruebas según el PDU}
+\begin{description}
+	\item[Pruebas de instalación] Verifican que el sistema puede ser instalado en la plataforma del cliente y que el sistema funcionará correctamente cuando sea instalado.
+	\item[Pruebas de configuración] Verifican que el sistema funciona correctamente en diferentes configuraciones.
+	\item[Pruebas negativas] Intentan provocar que el sistema falle para poder así revelar sus debilidades.
+	\item[Peuebas de tensión] Identifican problemas con el sistema cuando hay recurso insuficientes.
+\end{description}
+\subsubsection{Artefactos}
+\paragraph{Modelo de pruebas}
+Describe principalmente cómo se prueban los componentes ejecutables en el modelo de implementación con pruebas de integración y de sistema.
+\paragraph{Caso de prueba}
+Especifica una forma de pribar el sistema, incluyendo la entreda o resultado con la que se ha de probar y condiciones. Casos de prueba comunes:
+\begin{itemize}
+	\item Caso de prueba que especifica cómo probar un caso de uso o un escenario específico de un caso de uso.
+	\item Un caso de prueba que especifica cómo probar una realización de caso de uso de diseño o un escenario específico de una realización.
+\end{itemize}
+\paragraph{Procedimiento de prueba}
