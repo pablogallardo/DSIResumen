@@ -1,3 +1,53 @@
 \section{Evolución del software}
 \subsection{Procesos de Evolución del software}
-Después de que los sistemas han sido desarrollados inevitablemente van a sufrir cambios si 
+Después de que los sistemas han sido desarrollados inevitablemente van a sufrir cambios si se desea que sigan siendo útiles. Una vez que el software comienza a utilizarse, surgen nuevos requerimientos y los requerimientos existentes cambian. Los cambios eb kis negocios a menudo generan nuevos requerimientos para el software existente.\par
+Se puede pensar en la ingeniería del software como un modelo en espiral con requerimientos, dieño, implementación y pruebas que se realizan continuamente durante el ciclo de vida del sistema.
+\subsection{Dinámica de evolución}
+La dinámica de evoluci{on de los programas es el estudio de los cambios del sistema.
+\subsubsection{Leyes de Lehman}
+\paragraph{Cambio continuado}
+Un programa que se usa en un entorno real necesariamente debe cambiar o se volverá progresivamente menos útil en ese entorno.
+\paragraph{Complejidad creciente}
+A medida que un programa en evolución cambia, su estructura tiende a ser cada vez más compleja.
+\paragraph{Evolución prolongada del programa}
+La evolución de los programas es un proceso autorregulativo. Los atributos de los sistemas tales como el tamaño, tiempo entre entregas y el número de errores documentados son aproximadamente invariantes para cada entrega.
+\paragraph{Estabilidad organizacional}
+Durante el tiempo de vida de un programa, su velocidad de desarrollo es aproximadamente constante e independiente de los recursos dedicados al desarrollo del sistema.
+\paragraph{Conservación de la familiaridad}
+Durante el tiempo de vida de un sistema el cambio incremental en cada entrega es aproximadamente constante.
+\paragraph{Crecimiento continuado}
+La funcionalidad ofrecida por los sistemas tiene que crecer continuamente para mantener la satisfacción de los usuarios.
+\paragraph{Decremento de la calidad}
+La calidad de los sistemas comenzará a disminuir a menos que dichos sistemas se adapten a los cambias en su entorno de funcionamiento.
+\paragraph{Realimentación del sistema}
+Los procesos de evolución incorporan sistemas de realimentación multiagente y multibucle y estos deben ser tratados como sistemas de realimentación para lograr una mejora significativa del producto.
+\subsection{Mantenimiento del software}
+El mantenimiento del software es el proceso general de cambiar un sistema después de que este ha sido entregado. Existen tres tipos diferentes de mantenimiento de software.
+\begin{description}
+\item[Mantenimiento para reparar defectos del software] Se reparan errores de código y requerimientos.
+\item[Mantenimiento para adaptar el software a diferentes entorno operativos] Este tipo de mantenimiento se requiere cuando cambia algún aspecto del entorno del sistema como por ejemplo el hardware.
+\item[Mantenimiento para añadir o modificar las funcionalidades del sistema] Es necesario cuando los requerimientos del sistema cambian como respuesta a cambios organizacionales o del negocio.
+\end{description}
+\subsubsection{Costes del mantenimiento}
+\begin{description}
+\item[Estabilidad del equipo] Es normal que el equipo de desarrollo se disuelva y la gente trabaje en nuevos proyectos. Un nuevo equipo de desarrolladores tardará tiempo en comprender el sistema.
+\item[Responsabilidad contractual] El contrato de mantenimiento puede darse con una compañía diferente en lugar de con el desarrollador original del sistema. No existe incentivo para escribir un código que sea fácil de mantener.
+\item[Habilidades del personal] El personal de mantenimiento a menudo no tiene experiencia y no está familiarizado con el dominio de la aplicación.
+\item[Edad y estructura del programa] A medida que pasa el tiempo la estructura del software tiende a degradarse con los cambios por lo que se vuelve más difícil de comprender y modificar.
+\end{description}
+\subsection{Administración de Sistemas heredados}
+El proceso de evolución de los sistemas implica comprender el programa que tiene que cambiarse y a continuación implementar estos cambios. Los sistemas heredados más antiguos son difíciles de comprender y de cambiar.\par
+Para simplificar los problemas de cambiar sus sistemas heredados, una compañía puede decidir hacer reingeniería sobre esos sistemas para mejorar su estructura y comprensibilidad. La reingeniería del software se refiere a la reimplementación de los sistemas heredados para hacerlo más mantenibles, puede implicar redocumentar el sistema, organizar y reestructurar el sistema, traducir el sistema a un lenguaje de programación más moderno y modificar y actualizar la estructura y valores de los datos del sistema.\par
+Ventajas:
+\begin{description}
+\item[Riesgo reducido] Pueden cometerse errores en la especificación o puede haber problemaws en el desarrollo. Los retrasos en la introducción del nuevo software pueden significar pérdidas en el negocio e incurrir en costes adicionales.
+\item[Coste reducido] El coste de hacer reingeniería es significativamente menor que el coste de desarrollar nuevo software.
+\end{description}
+\subsubsection{Actividades de el proceso de reingeniería}
+\begin{description}
+\item[Traducción del código fuente] El programa es traducido desde un lenguaje de programación antiguo a una versión más moderna del mismo lenguaje o a un lenguaje diferente.
+\item[Ingeniería inversa] El programa se analiza y se extrae información a partir de él.
+\item[Mejora de la estructura de los programas] La estructura de control del programa se analiza y modifica para hacerla más fácil de leer y comprender.
+\item[Modularización de los programas] Se agrupan las partes relacionadas del programa y se elimina la redundancia en donde resulta adecuado.
+\item[Reingeniería de datos] Los datos procesados por el programa se cambian para reflejar los cambios en el.
+\end{description}

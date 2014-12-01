@@ -336,6 +336,16 @@ Cada patrón nomina, explica y evalúa un diseño importante y recurrente en los
 \paragraph{¿Qué son los Patrones de Diseño?}
 Son descripciones de clases y objetos relacionados que están particularizados para resolver un problema de diseño general en un determinado contexto.
 \paragraph{Tipos de Patrones de Diseño}
+\paragraph{¿A qué ayudan los patrones?}
+\begin{itemize}
+\item Encontrar los objetos apropiados.
+\item Determinar la granularidad de los objetos.
+\item Especificar interfaces de objetos.
+\item Especificar implementaciones de objetos.
+\item Favorecer reutilización.
+\item Diseñar para el cambio.
+\end{itemize}
+
 \subparagraph{Patrones de Creación}
 Los patrones de creación tienen que ver con el proceso de creación de objetos. Los patrones de creación de clases delegan alguna parte del proceso de creación de objetos en las subclases, mientras que los patrones de creación de objetos lo hacen en otro objeto. 
 \subparagraph{Patrones Estructurales}
@@ -463,7 +473,7 @@ En una base de datos relacional, la información se almacena en tablas. Los tipo
 \end{itemize}
 En vista de los problemas enunciados, necesitamos transformar nuestra estructura de información de objeto a una estructura orientada a tablas. Este problema se refiere a veces como el problema de la impedancia.\\
 El problema de la impedancia trata aún otro problema: crea un fuerte acoplamiento entre la aplicación y el DBMS.\\
-\subsection{Herencia}
+\subsubsection{Herencia}
 Los objetos que deberían ser persistentes deberían ser mapeados en tablas de la base de datos. Se las clases se heredan unas a otras, hay principalmente dos maneras diferentes de resolver esto:
 \begin{enumerate}
 \item Los atributos heredados se copian a todas las tablas que representan las clases descendientes. Ninguna tabla representará la clase abstracta. \emph{Se elimina al ``padre''}.
